@@ -20,6 +20,12 @@
                 </ul>
             </div>
         </div>
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="/admin" class="nav-link">Admin</a>
+            </li>
+        </ul>
     </nav>
 </template>
 
