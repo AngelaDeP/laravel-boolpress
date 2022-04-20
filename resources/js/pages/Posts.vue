@@ -6,13 +6,12 @@
 
                     <div class="row">
                         <div class="col-6 mt-5" v-for="post in posts" :key="post.id">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{post.title}}</h5>
-                                    <p class="card-text">{{post.content}}</p>
-                                    <router-link class="btn btn-primary" :to="{name: 'single-post', params: {slug: post.slug}}">View all</router-link>
-                                </div>
-                            </div>
+                            <MyPost 
+                                :title='post.title'
+                                :content='post.content'
+                                :slug='post.slug'
+                                :category='post.category'
+                            />
                         </div>
                     </div>
 
@@ -27,8 +26,12 @@
 </template>
 
 <script>
+    import MyPost from '../components/MyPost';
     export default {
         name: 'Posts',
+        components: {
+            MyPost
+        },
         
         data() {
             return {
