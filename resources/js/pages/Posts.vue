@@ -28,7 +28,7 @@
 
 <script>
     export default {
-        name: 'MyMain',
+        name: 'Posts',
         
         data() {
             return {
