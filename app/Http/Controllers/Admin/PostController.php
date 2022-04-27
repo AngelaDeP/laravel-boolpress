@@ -48,11 +48,17 @@ class PostController extends Controller
                 'title' => 'required|min:5',
                 'content' => 'required|min:20',
                 'category_id' => 'nullable|exists:categories,id',
-                'tags' => 'nullable|exists:tags,id'
+                'tags' => 'nullable|exists:tags,id',
+                'image' => 'nullable|image|max:2048'
             ]
         );
 
         $data = $request->all();
+
+        if (isset($data['image'])) {
+            $cover_path = Storage::put('post_covers', $data['image']);
+            $data['cover'] = $cover_path;
+        }
 
         $slug = Str::slug($data['title']);
 
